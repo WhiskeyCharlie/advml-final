@@ -80,7 +80,7 @@ def load_vectors(filename):
     print filename
     vectors = {}
     with open(filename, 'r') as f:
-        reader = csv.reader(f, delimiter = ' ')
+        reader = csv.reader(f, delimiter=' ')
         for row in reader:
             vectors[row[0]] = [float(x) for x in row[1:] if len(x) >0]
     return vectors
@@ -265,21 +265,28 @@ def main(filenames, label, csvname = None, neutral_lists = [], group_lists = ['m
         csvwriter.writerow(d)
         cf.flush()
 
-folder = '../vectors/normalized_clean/'
+folder_path = '/home/jon/Documents/AdvML/final_project/data/eng-all/'
 
-filenames_nyt = [folder + 'vectorsnyt{}-{}.txt'.format(x, x+3) for x in range(1987, 2005, 1)]
-filenames_sgns = [folder + 'vectors_sgns{}.txt'.format(x) for x in range(1910, 2000, 10)]
-filenames_svd = [folder + 'vectors_svd{}.txt'.format(x) for x in range(1910, 2000, 10)]
-filenames_google = [folder + 'vectorsGoogleNews_exactclean.txt']
-filenames_wikipedia = [folder + 'vectorswikipedia.txt']
-filenames_commoncrawl = [folder + 'vectorscommoncrawlglove.txt']
+# filenames_nyt = [folder + 'vectorsnyt{}-{}.txt'.format(x, x+3) for x in range(1987, 2005, 1)]
+filenames_sgns = [folder_path + 'processed_counts/' + '{}-counts.txt'.format(x) for x in range(1910, 2000, 10)]
+filenames_svd = [folder_path + 'processed_svd/' + '{}-vocab.txt'.format(x) for x in range(1910, 2000, 10)]
+# filenames_google = [folder + 'vectorsGoogleNews_exactclean.txt']
+# filenames_wikipedia = [folder + 'vectorswikipedia.txt']
+# filenames_commoncrawl = [folder + 'vectorscommoncrawlglove.txt']
 
-filename_map = {'nyt' : filenames_nyt, 'sgns' : filenames_sgns, 'svd': filenames_svd, 'google':filenames_google, 'wikipedia':filenames_wikipedia, 'commoncrawlglove':filenames_commoncrawl}
+filename_map = {
+    # 'nyt': filenames_nyt,
+    'sgns': filenames_sgns,
+    'svd': filenames_svd,
+    # 'google': filenames_google,
+    # 'wikipedia': filenames_wikipedia,
+    # 'commoncrawlglove': filenames_commoncrawl
+}
 
 if __name__ == "__main__":
     param_filename = 'run_params.csv'
 
-    with open(param_filename,'r') as f:
+    with open(param_filename, 'r') as f:
         reader = csv.DictReader(f)
         for row in reader:
             label = row['label']

@@ -10,3 +10,4 @@ __pycache__*
 plots/*
 run_results/*
 regressions/*
+venv/
