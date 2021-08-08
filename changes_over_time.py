@@ -266,11 +266,12 @@ def main(filenames, label, csvname = None, neutral_lists = [], group_lists = ['m
         cf.flush()
 
 folder_path = '/home/jon/Documents/AdvML/final_project/data/eng-all/'
+folder_google = '/home/jon/Documents/AdvML/final_project/data/google/'
 
 # filenames_nyt = [folder + 'vectorsnyt{}-{}.txt'.format(x, x+3) for x in range(1987, 2005, 1)]
 filenames_sgns = [folder_path + 'processed_counts/' + '{}-counts.txt'.format(x) for x in range(1910, 2000, 10)]
 filenames_svd = [folder_path + 'processed_svd/' + '{}-vocab.txt'.format(x) for x in range(1910, 2000, 10)]
-# filenames_google = [folder + 'vectorsGoogleNews_exactclean.txt']
+filenames_google = [folder_google + 'GoogleNews-vectors-negative300.bin']
 # filenames_wikipedia = [folder + 'vectorswikipedia.txt']
 # filenames_commoncrawl = [folder + 'vectorscommoncrawlglove.txt']
 
@@ -278,7 +279,7 @@ filename_map = {
     # 'nyt': filenames_nyt,
     'sgns': filenames_sgns,
     'svd': filenames_svd,
-    # 'google': filenames_google,
+    'google': filenames_google,
     # 'wikipedia': filenames_wikipedia,
     # 'commoncrawlglove': filenames_commoncrawl
 }

@@ -29,11 +29,11 @@ def main(filenametodo = 'run_results/finalrun.csv'):
 
     print(rows.keys())
 
-    # plots_to_do_gender_static = [
-    #     [scatter_occupation_percents_distances, [rows['google'], 'google', 'occupations1950', 'male_pairs', 'female_pairs', -1,'data/occupation_percentages_gender_occ1950.csv',load_occupationpercent_data, occupation_func_female_percent, [-.15, .15],[-100, 100], False, False, 'norm', 'png']],
-    #     [scatter_occupation_percents_distances, [rows['google'], 'google', 'occupations1950', 'male_pairs', 'female_pairs', -1,'data/occupation_percentages_gender_occ1950.csv',load_occupationpercent_data, occupation_func_female_logitprop, [-.15, .15],[-5, 3], False, False, 'norm', 'pdf']],
-    #     [residual_analysis_with_stereotypes,[rows['google'], 'google', 'occupations1950', 'male_pairs', 'female_pairs',  'data/occupation_percentages_gender_occ1950.csv', load_occupationpercent_data, occupation_func_female_percent, 'data/mturk_stereotypes.csv', load_mturkstereotype_data, 'norm', 'pdf']],
-    # ]
+    plots_to_do_gender_static = [
+        [scatter_occupation_percents_distances, [rows['google'], 'google', 'occupations1950', 'male_pairs', 'female_pairs', -1,'data/occupation_percentages_gender_occ1950.csv',load_occupationpercent_data, occupation_func_female_percent, [-.15, .15],[-100, 100], False, False, 'norm', 'png']],
+        [scatter_occupation_percents_distances, [rows['google'], 'google', 'occupations1950', 'male_pairs', 'female_pairs', -1,'data/occupation_percentages_gender_occ1950.csv',load_occupationpercent_data, occupation_func_female_logitprop, [-.15, .15],[-5, 3], False, False, 'norm', 'pdf']],
+        [residual_analysis_with_stereotypes,[rows['google'], 'google', 'occupations1950', 'male_pairs', 'female_pairs',  'data/occupation_percentages_gender_occ1950.csv', load_occupationpercent_data, occupation_func_female_percent, 'data/mturk_stereotypes.csv', load_mturkstereotype_data, 'norm', 'pdf']],
+    ]
 
     plots_to_do_gender_dynamic = [
         [plot_overtime_scatter, [rows['sgns'], 'sgns', 'occupations1950', 'male_pairs', 'female_pairs', 'data/occupation_percentages_gender_occ1950.csv',occupation_func_female_percent, None, None, False,None, None]],
@@ -90,11 +90,11 @@ def main(filenametodo = 'run_results/finalrun.csv'):
     #
     # ]
 
-    # plots_to_do_appendix_racehispanic_static = [
-    # [scatter_occupation_percents_distances, [rows['google'], 'google', 'occupations1950', 'names_white', 'names_hispanic', -1,'data/occupation_percentages_race_occ1950.csv',load_occupationpercent_data, occupation_func_whitehispanic_logitprop, None, None, False, False, 'norm', 'pdf']],
-    # [scatter_occupation_percents_distances, [rows['google'], 'google', 'occupations1950', 'names_white', 'names_hispanic', -1,'data/occupation_percentages_race_occ1950.csv',load_occupationpercent_data, occupation_func_whitehispanic_percent, None, None, False, False, 'norm', 'pdf']],
-    #
-    # ]
+    plots_to_do_appendix_racehispanic_static = [
+    [scatter_occupation_percents_distances, [rows['google'], 'google', 'occupations1950', 'names_white', 'names_hispanic', -1,'data/occupation_percentages_race_occ1950.csv',load_occupationpercent_data, occupation_func_whitehispanic_logitprop, None, None, False, False, 'norm', 'pdf']],
+    [scatter_occupation_percents_distances, [rows['google'], 'google', 'occupations1950', 'names_white', 'names_hispanic', -1,'data/occupation_percentages_race_occ1950.csv',load_occupationpercent_data, occupation_func_whitehispanic_percent, None, None, False, False, 'norm', 'pdf']],
+
+    ]
 
     plots_to_do_appendix_gender_dynamic = [
     [do_over_time_trend_test, [rows['sgns'], 'sgns', 'adjectives_intelligencegeneral', 'male_pairs', 'female_pairs', False, '', range(1960, 2000, 10)]],
@@ -104,13 +104,13 @@ def main(filenametodo = 'run_results/finalrun.csv'):
     plots_to_do = []
 
     set_plots_folder(plots_folder + 'gender/')
-    #
-    # for plot in plots_to_do_gender_static:
-    #     print(plot[0], plot[1][1:])
-    #     plot[0](*plot[1])
-    # for plot in plots_to_do_gender_dynamic:
-    #     print(plot[0], plot[1][1:])
-    #     plot[0](*plot[1])
+
+    for plot in plots_to_do_gender_static:
+        print(plot[0], plot[1][1:])
+        plot[0](*plot[1])
+    for plot in plots_to_do_gender_dynamic:
+        print(plot[0], plot[1][1:])
+        plot[0](*plot[1])
 
     # set_plots_folder(plots_folder + 'ethnicity/')
     # for plot in plots_to_do_race_dynamic:
@@ -133,9 +133,9 @@ def main(filenametodo = 'run_results/finalrun.csv'):
     # for plot in plots_to_do_appendix_raceasian_static:
     #     print(plot[0], plot[1][1:])
     #     plot[0](*plot[1])
-    # for plot in plots_to_do_appendix_racehispanic_static:
-    #     print(plot[0], plot[1][1:])
-    #     plot[0](*plot[1])
+    for plot in plots_to_do_appendix_racehispanic_static:
+        print(plot[0], plot[1][1:])
+        plot[0](*plot[1])
 
 
 main()
